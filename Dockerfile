@@ -1,4 +1,4 @@
 FROM openjdk:latest
-COPY ./target/classes/com /tmp/com
+COPY ./target/popInfo-0.1.0.1-jar-with-dependencies.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "com.github.group3coursework.App"]
+ENTRYPOINT ["java", "-jar", "popInfo-0.1.0.1-jar-with-dependencies.jar"]
