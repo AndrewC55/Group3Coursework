@@ -6,5 +6,5 @@ services:
   - docker
 
 after_success:
-  - docker build -t popInfo .
-  - docker run popInfo
+  - docker build -t popinfo .
+  - docker run popinfo
