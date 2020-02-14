@@ -7,3 +7,5 @@
 - Failure to attend sprint planning or stand ups without a valid reason.
 - Rude or unhelpful criticism on code reviews.
 - Failure to take on a fair share of work.
+- Add Pull Requests to tickets on Zube.
+- Read use cases attached to tickets before starting work to have a clear idea of what the ticket should achieve.
