@@ -1,4 +1,4 @@
-# USE CASE: 30 Population of people in rural areas in each continent
+# USE CASE: 29 Population of people in rural areas in each continent
 
 ## CHARACTERISTIC INFORMATION
 
