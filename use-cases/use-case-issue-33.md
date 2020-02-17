@@ -1,10 +1,10 @@
-# USE CASE: 33 Population of the World
+# USE CASE: 33 Population of a Continent
 
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a Marketing executive I can see the population of the world so that I can make marketing decisions based on the population growth
+As a Financial advisor I can see the population of a continent so that I can determine which continent would be best for business
 
 ### Scope
 
@@ -16,30 +16,30 @@ Subfunction.
 
 ### Preconditions
 
-None.
+Finance advisor should know what continent they intend to get the population of.
 
 ### Success End Condition
 
-Marketing executive can see the population of the world.
+Finance advisor can see the population of a continent.
 
 ### Failed End Condition
 
-Marketing executive cannot see the population of the world.
+Finance advisor cannot see the population of a continent.
 
 ### Primary Actor
 
-Marketing executive.
+Finance advisor.
 
 ### Trigger
 
-A request for the population of the world is sent to Marketing.
+A request for the population of continents is sent to Finance.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Director of Marketing asks an executive for the populations of the world.
-2. Marketing executive asks system for population of continent.
-3. Population of the world is given to the Marketing executive.
-4. Marketing executive gives report to CFO.
+1. CFO asks Finance for the populations of each continents.
+2. Finance advisor asks system for population of continents.
+3. Population of continents is given to the Finance advisor.
+4. Finance advisor gives report to CFO.
 
 ## EXTENSIONS
 
