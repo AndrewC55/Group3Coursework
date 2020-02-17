@@ -25,7 +25,7 @@ class CityReport {
                             + "ORDER BY city.Name ASC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract city information
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
