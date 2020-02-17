@@ -1,4 +1,4 @@
-# USE CASE: 31 Population of people in rural areas
+# USE CASE: 31 Population of people in rural areas in each country
 
 ## CHARACTERISTIC INFORMATION
 
@@ -20,11 +20,11 @@ None.
 
 ### Success End Condition
 
-Marketing executive can see the population of people living in rural areas.
+Marketing executive can see the population of people living in rural areas in each country.
 
 ### Failed End Condition
 
-Marketing executive cannot see the population of people living in rural areas.
+Marketing executive cannot see the population of people living in rural areas in each country.
 
 ### Primary Actor
 
@@ -32,13 +32,13 @@ Marketing executive.
 
 ### Trigger
 
-A request for the population of people living in rural areas is sent to Marketing.
+A request for the population of people living in rural areas in each country is sent to Marketing.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Director of Marketing asks an executive for the populations of people living in rural areas.
-2. Marketing executive asks system for population of people living in rural areas.
-3. Population of people living in rural areas is given to the Marketing executive.
+1. Director of Marketing asks an executive for the populations of people living in rural areas in each country.
+2. Marketing executive asks system for population of people living in rural areas in each country.
+3. Population of people living in rural areas in each country is given to the Marketing executive.
 4. Marketing executive gives report to CFO.
 
 ## EXTENSIONS
