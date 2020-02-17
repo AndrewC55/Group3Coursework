@@ -1,10 +1,17 @@
 package com.github.group3coursework;
 
+import java.util.ArrayList;
 import java.sql.*;
 
+/**
+ * Main App for the program
+ */
 public class App {
-    public static void main(String[] args)
-    {
+    /**
+     * TODO add user input for which report they would like to view
+     * @param args arguments passed to the main
+     */
+    public static void main(String[] args) {
         System.out.println("Project builds to self contained JAR with Maven");
         // Create new Application
         App a = new App();
@@ -12,7 +19,8 @@ public class App {
         // Connect to database
         a.connect();
 
-        a.getAmountOfCities();
+        // asks the user which report they would like to view
+        a.reportSelector("City");
 
         // Disconnect from database
         a.disconnect();
@@ -24,9 +32,34 @@ public class App {
     private Connection con = null;
 
     /**
+     * TODO add all report names in switch statement and add provide the class name
+     * All report names will go in here for
+     */
+    private void reportSelector(String report)  {
+        switch(report) {
+            case "City":
+                CityReport cReport = new CityReport();
+                ArrayList<City> cityList = cReport.generateReport(con);
+                cReport.displayReport(cityList);
+                break;
+            case "Country":
+                System.out.println("not implemented yet");
+                break;
+            case "Capital":
+                System.out.println("not implemented yet");
+                break;
+            case "Population":
+                System.out.println("not implemented yet");
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
      * Connect to the MySQL database.
      */
-    public void connect()
+    private void connect()
     {
         try
         {
@@ -67,7 +100,7 @@ public class App {
     /**
      * Disconnect from the MySQL database.
      */
-    public void disconnect()
+    private void disconnect()
     {
         if (con != null)
         {
@@ -83,7 +116,7 @@ public class App {
         }
     }
 
-    public void getAmountOfCities()
+    private void getAmountOfCities()
     {
         try
         {
