@@ -1,4 +1,4 @@
-# USE CASE: 22 Most populated capital cities for a continent
+# USE CASE: 19 Most populated capital cities for a continent
 
 ## CHARACTERISTIC INFORMATION
 

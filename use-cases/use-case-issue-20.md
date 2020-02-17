@@ -1,4 +1,4 @@
-# USE CASE: 22 Most populated capital cities for a region
+# USE CASE: 20 Most populated capital cities for a region
 
 ## CHARACTERISTIC INFORMATION
 
