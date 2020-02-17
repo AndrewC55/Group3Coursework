@@ -1,4 +1,4 @@
-# USE CASE: 17 Cities in a country
+# USE CASE: 16 Cities in a country
 
 ## CHARACTERISTIC INFORMATION
 

@@ -1,4 +1,4 @@
-# USE CASE: 17 Cities in a region
+# USE CASE: 14 Cities in a region
 
 ## CHARACTERISTIC INFORMATION
 
