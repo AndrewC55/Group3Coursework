@@ -1,4 +1,4 @@
-# USE CASE: 35 Population of a Region
+# USE CASE: 34 Population of a Region
 
 ## CHARACTERISTIC INFORMATION
 
