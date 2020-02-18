@@ -11,11 +11,10 @@ class CountryReport {
       // Create an SQL statement
       Statement stmt = con.createStatement();
 
-      String strSelect = "SELECT country.Name as Country, country.Region as Region,"
-          + "country.Population as Population, city.Name as Capital, country.Continent as Continent "
+      String strSelect = "SELECT country.Name, country.Region, country.Population, city.Name, country.Continent "
           + "FROM country, city "
           + "WHERE country.Capital = city.ID "
-          + "ORDER BY country.Population";
+          + "ORDER BY country.Population DESC";
 
       ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -27,6 +26,7 @@ class CountryReport {
         country.population = rset.getInt("country.Population");
         country.capitalCity = rset.getString("city.Name");
         country.continent = rset.getString("country.Continent");
+        countries.add(country);
       }
       return countries;
     }
@@ -40,11 +40,11 @@ class CountryReport {
 
   void displayReport(ArrayList<Country> countries) {
     // Print country report headers
-    System.out.println(String.format("%-10s %-10s %-10s %-10s %-10s", "Name", "Region", "Population", "Capital City", "Continent"));
+    System.out.println(String.format("%-30s %-30s %-30s %-30s %-30s", "Name", "Region", "Population", "Capital City", "Continent"));
 
     // Loop through the countries ArrayList and format all entries
     for (Country country : countries) {
-      String countryString = String.format("%-10s %-10s %-10s %-10s %-10s", country.name, country.region, country.population, country.capitalCity, country.continent);
+      String countryString = String.format("%-30s %-30s %-30s %-30s %-30s", country.name, country.region, country.population, country.capitalCity, country.continent);
       System.out.println(countryString);
     }
   }
