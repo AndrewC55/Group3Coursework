@@ -20,7 +20,7 @@ public class App {
         a.connect();
 
         // asks the user which report they would like to view
-        a.reportSelector("City");
+        a.reportSelector("Country");
 
         // Disconnect from database
         a.disconnect();
@@ -38,12 +38,14 @@ public class App {
     private void reportSelector(String report)  {
         switch(report) {
             case "City":
-                CityReport cReport = new CityReport();
-                ArrayList<City> cityList = cReport.generateReport(con);
-                cReport.displayReport(cityList);
+                CityReport cityReport = new CityReport();
+                ArrayList<City> cityList = cityReport.generateReport(con);
+                cityReport.displayReport(cityList);
                 break;
             case "Country":
-                System.out.println("not implemented yet");
+                CountryReport countryReport = new CountryReport();
+                ArrayList<Country> countryList = countryReport.generateReport(con);
+                countryReport.displayReport(countryList);
                 break;
             case "Capital":
                 System.out.println("not implemented yet");
@@ -124,8 +126,8 @@ public class App {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT COUNT(*) as Amount "
-                            + "FROM city ";
+                "SELECT COUNT(*) as Amount "
+                    + "FROM city ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
