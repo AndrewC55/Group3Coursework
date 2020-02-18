@@ -20,7 +20,7 @@ public class App {
         a.connect();
 
         // asks the user which report they would like to view
-        a.reportSelector("Country");
+        a.reportSelector("Capital");
 
         // Disconnect from database
         a.disconnect();
@@ -48,7 +48,9 @@ public class App {
                 countryReport.displayReport(countryList);
                 break;
             case "Capital":
-                System.out.println("not implemented yet");
+                CapitalReport capitalReport = new CapitalReport();
+                ArrayList<Capital> capitalList = capitalReport.generateReport(con);
+                capitalReport.displayReport(capitalList);
                 break;
             case "Population":
                 System.out.println("not implemented yet");
@@ -115,34 +117,6 @@ public class App {
             {
                 System.out.println("Error closing connection to database");
             }
-        }
-    }
-
-    private void getAmountOfCities()
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                "SELECT COUNT(*) as Amount "
-                    + "FROM city ";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                System.out.println(rset.getInt("Amount"));
-            }
-            else
-                System.out.println("Nothing was found.");
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get cities");
         }
     }
 }
