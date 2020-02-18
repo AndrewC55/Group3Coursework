@@ -117,4 +117,32 @@ public class App {
             }
         }
     }
+
+    private void getAmountOfCities()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                "SELECT COUNT(*) as Amount "
+                    + "FROM city ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            if (rset.next())
+            {
+                System.out.println(rset.getInt("Amount"));
+            }
+            else
+                System.out.println("Nothing was found.");
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get cities");
+        }
+    }
 }
