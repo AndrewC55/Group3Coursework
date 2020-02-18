@@ -52,11 +52,11 @@ class CityReport {
      */
     void displayReport(ArrayList<City> cities) {
         // Print Header
-        System.out.println(String.format("%-10s %-10s %-10s %-10s", "Name", "Country", "District", "Population"));
+        System.out.println(String.format("%-35s %-35s %-35s %-35s", "Name", "Country", "District", "Population"));
 
         // Loop through the cities ArrayList and format all entries
         for (City city : cities) {
-            String cityString = String.format("%-10s %-10s %-10s %-10s", city.name, city.country, city.district, city.population);
+            String cityString = String.format("%-35s %-35s %-35s %-35s", city.name, city.country, city.district, city.population);
             System.out.println(cityString);
         }
     }
