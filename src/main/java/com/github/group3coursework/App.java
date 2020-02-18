@@ -1,10 +1,17 @@
 package com.github.group3coursework;
 
+import java.util.ArrayList;
 import java.sql.*;
 
+/**
+ * Main App for the program
+ */
 public class App {
-    public static void main(String[] args)
-    {
+    /**
+     * TODO add user input for which report they would like to view
+     * @param args arguments passed to the main
+     */
+    public static void main(String[] args) {
         System.out.println("Project builds to self contained JAR with Maven");
         // Create new Application
         App a = new App();
@@ -12,7 +19,8 @@ public class App {
         // Connect to database
         a.connect();
 
-        a.getAmountOfCities();
+        // asks the user which report they would like to view
+        a.reportSelector("Capital");
 
         // Disconnect from database
         a.disconnect();
@@ -24,9 +32,38 @@ public class App {
     private Connection con = null;
 
     /**
+     * TODO add all report names in switch statement and add provide the class name
+     * All report names will go in here for
+     */
+    private void reportSelector(String report)  {
+        switch(report) {
+            case "City":
+                CityReport cityReport = new CityReport();
+                ArrayList<City> cityList = cityReport.generateReport(con);
+                cityReport.displayReport(cityList);
+                break;
+            case "Country":
+                CountryReport countryReport = new CountryReport();
+                ArrayList<Country> countryList = countryReport.generateReport(con);
+                countryReport.displayReport(countryList);
+                break;
+            case "Capital":
+                CapitalReport capitalReport = new CapitalReport();
+                ArrayList<Capital> capitalList = capitalReport.generateReport(con);
+                capitalReport.displayReport(capitalList);
+                break;
+            case "Population":
+                System.out.println("not implemented yet");
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
      * Connect to the MySQL database.
      */
-    public void connect()
+    private void connect()
     {
         try
         {
@@ -67,7 +104,7 @@ public class App {
     /**
      * Disconnect from the MySQL database.
      */
-    public void disconnect()
+    private void disconnect()
     {
         if (con != null)
         {
@@ -80,34 +117,6 @@ public class App {
             {
                 System.out.println("Error closing connection to database");
             }
-        }
-    }
-
-    public void getAmountOfCities()
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT COUNT(*) as Amount "
-                            + "FROM city ";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                System.out.println(rset.getInt("Amount"));
-            }
-            else
-                System.out.println("Nothing was found.");
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get cities");
         }
     }
 }
