@@ -1,14 +1,14 @@
 package com.github.group3coursework;
 
-public class Country {
+class Country {
 
-  String countryName;
+  String name;
 
   String continent;
 
   String region;
 
-  Integer population;
+  int population;
 
   String capitalCity;
 }

@@ -5,29 +5,28 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CountryReport {
-
+class CountryReport {
   ArrayList<Country> generateReport(Connection con) {
     try {
       // Create an SQL statement
       Statement stmt = con.createStatement();
 
-      String strSelect = "SELECT country.name as Country, country.region as Region,"
-          + " country.population as Population,"
-          + "country.capital as Capital, country.continent as Continent"
-          + "FROM country "
-          + "ORDER BY city.population";
+      String strSelect = "SELECT country.Name as Country, country.Region as Region,"
+          + "country.Population as Population, city.Name as Capital, country.Continent as Continent "
+          + "FROM country, city "
+          + "WHERE country.Capital = city.ID "
+          + "ORDER BY country.Population";
 
       ResultSet rset = stmt.executeQuery(strSelect);
 
       ArrayList<Country> countries = new ArrayList<>();
       while (rset.next()) {
         Country country = new Country();
-        country.countryName = rset.getString("country.name");
-        country.continent = rset.getString("country.continent");
-        country.region = rset.getString("country.region");
-        country.population = rset.getInt("country.population");
-        country.capitalCity = rset.getString("country.capital");
+        country.name = rset.getString("country.Name");
+        country.region = rset.getString("country.Region");
+        country.population = rset.getInt("country.Population");
+        country.capitalCity = rset.getString("city.Name");
+        country.continent = rset.getString("country.Continent");
       }
       return countries;
     }
@@ -40,12 +39,12 @@ public class CountryReport {
   }
 
   void displayReport(ArrayList<Country> countries) {
-    // Print Header
-    System.out.println(String.format("%-10s %-10s %-10s %-10s", "Name", "Continent", "Region", "Population", "Capital City"));
+    // Print country report headers
+    System.out.println(String.format("%-10s %-10s %-10s %-10s %-10s", "Name", "Region", "Population", "Capital City", "Continent"));
 
-    // Loop through the cities ArrayList and format all entries
+    // Loop through the countries ArrayList and format all entries
     for (Country country : countries) {
-      String countryString = String.format("%-10s %-10s %-10s %-10s", country.countryName, country.capitalCity, country.continent, country.population, country.region);
+      String countryString = String.format("%-10s %-10s %-10s %-10s %-10s", country.name, country.region, country.population, country.capitalCity, country.continent);
       System.out.println(countryString);
     }
   }
