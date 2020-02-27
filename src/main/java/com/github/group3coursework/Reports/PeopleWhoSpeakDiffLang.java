@@ -18,19 +18,23 @@ class PeopleWhoSpeakDiffLang {
             // Create an SQL statement
             Statement stmt = con.createStatement();
 
-            String strSelect = "SELECT "
-                             + " "
-                             + "FROM countrylanguage l, country c "
-                             + "WHERE l.countryCode = c.Code ";
+            String getAllSelectedLanguages = "SELECT "
+                    + "SUM(CASE WHEN Language = 'Chinese' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Chinese, "
+                    + "SUM(CASE WHEN Language = 'English' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS English, "
+                    + "SUM(CASE WHEN Language = 'Hindi' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Hindi, "
+                    + "SUM(CASE WHEN Language = 'Spanish' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Spanish, "
+                    + "SUM(CASE WHEN Language = 'Arabic' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Arabic "
+                    + "FROM countrylanguage, country "
+                    + "WHERE l.CountryCode = c.Code";
 
-            ResultSet rset = stmt.executeQuery(strSelect);
+            ResultSet rset = stmt.executeQuery(getAllSelectedLanguages);
 
             Language language = new Language();
-            language.setChinese(rset.getInt(""));
-            language.setEnglish(rset.getInt(""));
-            language.setHindi(rset.getInt(""));
-            language.setSpanish(rset.getInt(""));
-            language.setArabic(rset.getInt(""));
+            language.setChinese(rset.getInt("Chinese"));
+            language.setEnglish(rset.getInt("English"));
+            language.setHindi(rset.getInt("Hindi"));
+            language.setSpanish(rset.getInt("Spanish"));
+            language.setArabic(rset.getInt("Arabic"));
 
             return language;
         }
