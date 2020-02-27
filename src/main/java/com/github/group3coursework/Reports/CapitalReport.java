@@ -6,9 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CapitalReport {
+class CapitalReport {
 
-  public ArrayList<Capital> generateReport(Connection con) {
+  /**
+   * Generates the Capital Report
+   * @param con is the connection to the database
+   * @return ArrayList
+   */
+  ArrayList<Capital> generateReport(Connection con) {
     try {
       // Create an SQL statement
       Statement stmt = con.createStatement();
@@ -38,7 +43,11 @@ public class CapitalReport {
     }
   }
 
-  public void displayReport(ArrayList<Capital> capitals) {
+  /**
+   * Displays the Capital Report
+   * @param capitals is an ArrayList that contains capitals retrieved by the SQL query
+   */
+  void displayReport(ArrayList<Capital> capitals) {
     // Print Header
     System.out.println(String.format("%-35s %-35s %-35s", "Name", "Country", "Population"));
 

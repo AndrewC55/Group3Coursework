@@ -1,12 +1,6 @@
 package com.github.group3coursework;
 
-import com.github.group3coursework.Entities.Capital;
-import com.github.group3coursework.Entities.City;
-import com.github.group3coursework.Entities.Country;
-import com.github.group3coursework.Reports.CapitalReport;
-import com.github.group3coursework.Reports.CityReport;
-import com.github.group3coursework.Reports.CountryReport;
-import java.util.ArrayList;
+import com.github.group3coursework.Reports.ReportHandler;
 import java.sql.*;
 
 /**
@@ -26,7 +20,7 @@ public class App {
         a.connect();
 
         // asks the user which report they would like to view
-        a.reportSelector("Capital");
+        a.packageSelector("Report");
 
         // Disconnect from database
         a.disconnect();
@@ -38,28 +32,14 @@ public class App {
     private Connection con = null;
 
     /**
-     * TODO add all report names in switch statement and add provide the class name
-     * All report names will go in here for
+     * This is used to determine which package of sql queries the user would like to view
+     * @param packageName string value used to input the package
      */
-    private void reportSelector(String report)  {
-        switch(report) {
-            case "City":
-                CityReport cityReport = new CityReport();
-                ArrayList<City> cityList = cityReport.generateReport(con);
-                cityReport.displayReport(cityList);
-                break;
-            case "Country":
-                CountryReport countryReport = new CountryReport();
-                ArrayList<Country> countryList = countryReport.generateReport(con);
-                countryReport.displayReport(countryList);
-                break;
-            case "Capital":
-                CapitalReport capitalReport = new CapitalReport();
-                ArrayList<Capital> capitalList = capitalReport.generateReport(con);
-                capitalReport.displayReport(capitalList);
-                break;
-            case "Population":
-                System.out.println("not implemented yet");
+    private void packageSelector(String packageName) {
+        switch(packageName) {
+            case "Report":
+                ReportHandler reportHandler = new ReportHandler();
+                reportHandler.reportSelector("City", con);
                 break;
             default:
                 break;

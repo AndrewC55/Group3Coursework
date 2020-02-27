@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CityReport {
+class CityReport {
 
     /**
      * Generates the City Report
      * @param con is the connection to the database
      * @return ArrayList
      */
-    public ArrayList<City> generateReport(Connection con) {
+    ArrayList<City> generateReport(Connection con) {
         try
         {
             // Create an SQL statement
@@ -51,7 +51,7 @@ public class CityReport {
      * Displays the City Report
      * @param cities is an ArrayList that contains cities retrieved by the SQL query
      */
-    public void displayReport(ArrayList<City> cities) {
+    void displayReport(ArrayList<City> cities) {
         // Print Header
         System.out.println(String.format("%-35s %-35s %-35s %-35s", "Name", "Country", "District", "Population"));
 

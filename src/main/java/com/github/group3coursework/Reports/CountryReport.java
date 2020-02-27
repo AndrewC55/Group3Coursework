@@ -6,8 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CountryReport {
-  public ArrayList<Country> generateReport(Connection con) {
+class CountryReport {
+
+  /**
+   * Generates the Country Report
+   * @param con is the connection to the database
+   * @return ArrayList
+   */
+  ArrayList<Country> generateReport(Connection con) {
     try {
       // Create an SQL statement
       Statement stmt = con.createStatement();
@@ -39,7 +45,11 @@ public class CountryReport {
     }
   }
 
-  public void displayReport(ArrayList<Country> countries) {
+  /**
+   * Displays the Country Report
+   * @param countries is an ArrayList that contains countries retrieved by the SQL query
+   */
+  void displayReport(ArrayList<Country> countries) {
     // Print country report headers
     System.out.println(String.format("%-30s %-30s %-30s %-30s %-30s", "Name", "Region", "Population", "Capital City", "Continent"));
 
