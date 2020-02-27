@@ -1,5 +1,11 @@
 package com.github.group3coursework;
 
+import com.github.group3coursework.Entities.Capital;
+import com.github.group3coursework.Entities.City;
+import com.github.group3coursework.Entities.Country;
+import com.github.group3coursework.Reports.CapitalReport;
+import com.github.group3coursework.Reports.CityReport;
+import com.github.group3coursework.Reports.CountryReport;
 import java.util.ArrayList;
 import java.sql.*;
 

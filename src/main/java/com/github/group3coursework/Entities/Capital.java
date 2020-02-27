@@ -1,9 +1,9 @@
-package com.github.group3coursework;
+package com.github.group3coursework.Entities;
 
 /**
  * Represent's a capital city
  */
-class Capital {
+public class Capital {
 
   /**
    * Capital's name

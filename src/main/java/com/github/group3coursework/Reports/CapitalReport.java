@@ -1,5 +1,6 @@
-package com.github.group3coursework;
+package com.github.group3coursework.Reports;
 
+import com.github.group3coursework.Entities.Capital;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 
 public class CapitalReport {
 
-  ArrayList<Capital> generateReport(Connection con) {
+  public ArrayList<Capital> generateReport(Connection con) {
     try {
       // Create an SQL statement
       Statement stmt = con.createStatement();
@@ -37,7 +38,7 @@ public class CapitalReport {
     }
   }
 
-  void displayReport(ArrayList<Capital> capitals) {
+  public void displayReport(ArrayList<Capital> capitals) {
     // Print Header
     System.out.println(String.format("%-35s %-35s %-35s", "Name", "Country", "Population"));
 

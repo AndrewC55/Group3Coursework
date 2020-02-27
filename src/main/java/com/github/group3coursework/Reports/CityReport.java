@@ -1,18 +1,19 @@
-package com.github.group3coursework;
+package com.github.group3coursework.Reports;
 
+import com.github.group3coursework.Entities.City;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-class CityReport {
+public class CityReport {
 
     /**
      * Generates the City Report
      * @param con is the connection to the database
      * @return ArrayList
      */
-    ArrayList<City> generateReport(Connection con) {
+    public ArrayList<City> generateReport(Connection con) {
         try
         {
             // Create an SQL statement
@@ -50,7 +51,7 @@ class CityReport {
      * Displays the City Report
      * @param cities is an ArrayList that contains cities retrieved by the SQL query
      */
-    void displayReport(ArrayList<City> cities) {
+    public void displayReport(ArrayList<City> cities) {
         // Print Header
         System.out.println(String.format("%-35s %-35s %-35s %-35s", "Name", "Country", "District", "Population"));
 

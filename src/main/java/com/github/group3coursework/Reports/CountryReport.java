@@ -1,12 +1,13 @@
-package com.github.group3coursework;
+package com.github.group3coursework.Reports;
 
+import com.github.group3coursework.Entities.Country;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-class CountryReport {
-  ArrayList<Country> generateReport(Connection con) {
+public class CountryReport {
+  public ArrayList<Country> generateReport(Connection con) {
     try {
       // Create an SQL statement
       Statement stmt = con.createStatement();
@@ -38,7 +39,7 @@ class CountryReport {
     }
   }
 
-  void displayReport(ArrayList<Country> countries) {
+  public void displayReport(ArrayList<Country> countries) {
     // Print country report headers
     System.out.println(String.format("%-30s %-30s %-30s %-30s %-30s", "Name", "Region", "Population", "Capital City", "Continent"));
 

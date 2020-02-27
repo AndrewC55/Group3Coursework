@@ -1,9 +1,9 @@
-package com.github.group3coursework;
+package com.github.group3coursework.Entities;
 
 /**
  * Represent's a country
  */
-class Country {
+public class Country {
 
   /**
    * Country's name
