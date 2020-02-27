@@ -1,5 +1,8 @@
 package com.github.group3coursework;
 
+/**
+ * Represent's a capital city
+ */
 class Capital {
 
   /**
