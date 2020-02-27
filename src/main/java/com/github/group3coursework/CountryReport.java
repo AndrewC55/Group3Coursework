@@ -21,11 +21,11 @@ class CountryReport {
       ArrayList<Country> countries = new ArrayList<>();
       while (rset.next()) {
         Country country = new Country();
-        country.name = rset.getString("country.Name");
-        country.region = rset.getString("country.Region");
-        country.population = rset.getInt("country.Population");
-        country.capitalCity = rset.getString("city.Name");
-        country.continent = rset.getString("country.Continent");
+        country.setName(rset.getString("country.Name"));;
+        country.setRegion(rset.getString("country.Region"));
+        country.setPopulation(rset.getInt("country.Population"));
+        country.setCapitalCity(rset.getString("city.Name"));
+        country.setContinent(rset.getString("country.Continent"));
         countries.add(country);
       }
       return countries;
@@ -44,7 +44,7 @@ class CountryReport {
 
     // Loop through the countries ArrayList and format all entries
     for (Country country : countries) {
-      String countryString = String.format("%-30s %-30s %-30s %-30s %-30s", country.name, country.region, country.population, country.capitalCity, country.continent);
+      String countryString = String.format("%-30s %-30s %-30s %-30s %-30s", country.getName(), country.getRegion(), country.getPopulation(), country.getCapitalCity(), country.getContinent());
       System.out.println(countryString);
     }
   }

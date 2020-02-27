@@ -23,9 +23,9 @@ public class CapitalReport {
       ArrayList<Capital> capitals = new ArrayList<>();
       while (rset.next()) {
         Capital capital = new Capital();
-        capital.name = rset.getString("city.Name");
-        capital.country = rset.getString("country.Name");
-        capital.population = rset.getInt("city.population");
+        capital.setName(rset.getString("city.Name"));
+        capital.setCountry(rset.getString("country.Name"));
+        capital.setPopulation(rset.getInt("city.population"));
         capitals.add(capital);
       }
       return capitals;
@@ -44,7 +44,7 @@ public class CapitalReport {
     // Loop through the capitals ArrayList and format all entries
     for (Capital capital : capitals) {
       String capitalString = String
-          .format("%-35s %-35s %-35s", capital.name, capital.country, capital.population);
+          .format("%-35s %-35s %-35s", capital.getName(), capital.getCountry(), capital.getPopulation());
       System.out.println(capitalString);
     }
   }
