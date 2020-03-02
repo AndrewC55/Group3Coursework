@@ -19,11 +19,11 @@ class PeopleWhoSpeakDiffLang {
             Statement stmt = con.createStatement();
 
             String getAllSelectedLanguages = "SELECT "
-                    + "SUM(CASE WHEN Language = 'Chinese' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Chinese, "
-                    + "SUM(CASE WHEN Language = 'English' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS English, "
-                    + "SUM(CASE WHEN Language = 'Hindi' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Hindi, "
-                    + "SUM(CASE WHEN Language = 'Spanish' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Spanish, "
-                    + "SUM(CASE WHEN Language = 'Arabic' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Arabic "
+                    + "SUM(CASE WHEN countryLanguage.Language = 'Chinese' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Chinese, "
+                    + "SUM(CASE WHEN countryLanguage.Language = 'English' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS English, "
+                    + "SUM(CASE WHEN countryLanguage.Language = 'Hindi' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Hindi, "
+                    + "SUM(CASE WHEN countryLanguage.Language = 'Spanish' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Spanish, "
+                    + "SUM(CASE WHEN countryLanguage.Language = 'Arabic' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Arabic "
                     + "FROM countrylanguage, country "
                     + "WHERE l.CountryCode = c.Code";
 
