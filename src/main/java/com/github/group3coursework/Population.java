@@ -20,5 +20,5 @@ public class Population {
      * Rural Population
      */
     long populationRural;
-    
+
 }
