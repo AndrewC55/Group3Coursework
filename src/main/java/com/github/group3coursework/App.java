@@ -40,7 +40,6 @@ public class App {
             case "Report":
                 ReportHandler reportHandler = new ReportHandler();
                 reportHandler.reportSelector("City", con);
-                break;
             default:
                 break;
         }
