@@ -20,7 +20,7 @@ public class App {
         a.connect();
 
         // asks the user which report they would like to view
-        a.reportSelector("Capital");
+        a.reportSelector("Population");
 
         // Disconnect from database
         a.disconnect();
@@ -48,9 +48,7 @@ public class App {
                 countryReport.displayReport(countryList);
                 break;
             case "Capital":
-                CapitalReport capitalReport = new CapitalReport();
-                ArrayList<Capital> capitalList = capitalReport.generateReport(con);
-                capitalReport.displayReport(capitalList);
+                System.out.println("not implemented yet");
                 break;
             case "Population":
                 PopulationReport popReport = new PopulationReport();
