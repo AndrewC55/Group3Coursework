@@ -1,9 +1,6 @@
 package com.github.group3coursework.Reports;
 
-import com.github.group3coursework.Entities.Capital;
-import com.github.group3coursework.Entities.City;
-import com.github.group3coursework.Entities.Country;
-import com.github.group3coursework.Entities.Language;
+import com.github.group3coursework.Entities.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -14,7 +11,6 @@ import java.util.ArrayList;
  */
 public class ReportHandler {
     /**
-     * TODO add all report names in switch statement and add provide the class name
      * All report names will go in here for
      */
     public void reportSelector(String report, Connection con)  {
@@ -35,7 +31,9 @@ public class ReportHandler {
                 capitalReport.displayReport(capitalList);
                 break;
             case "Population":
-                System.out.println("not implemented yet");
+                PopulationReport populationReport = new PopulationReport();
+                ArrayList<Population> populationList = populationReport.generateReport(con, "continent");
+                populationReport.displayReport(populationList);
                 break;
             case "Languages":
                 NumberOfPeopleWhoSpeakDifferentLanguages peopleWhoSpeakDiffLang = new NumberOfPeopleWhoSpeakDifferentLanguages();
