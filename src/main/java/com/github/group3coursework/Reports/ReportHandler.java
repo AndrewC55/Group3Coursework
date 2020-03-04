@@ -39,6 +39,7 @@ public class ReportHandler {
                 NumberOfPeopleWhoSpeakDifferentLanguages peopleWhoSpeakDiffLang = new NumberOfPeopleWhoSpeakDifferentLanguages();
                 Language language = peopleWhoSpeakDiffLang.generateReport(con);
                 peopleWhoSpeakDiffLang.displayReport(language);
+                break;
             default:
                 break;
         }
