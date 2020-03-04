@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-class PeopleWhoSpeakDiffLang {
+class NumberOfPeopleWhoSpeakDifferentLanguages {
 
     /**
      * Generates the number of people who speak different languages

@@ -38,7 +38,7 @@ public class ReportHandler {
                 System.out.println("not implemented yet");
                 break;
             case "Languages":
-                PeopleWhoSpeakDiffLang peopleWhoSpeakDiffLang = new PeopleWhoSpeakDiffLang();
+                NumberOfPeopleWhoSpeakDifferentLanguages peopleWhoSpeakDiffLang = new NumberOfPeopleWhoSpeakDifferentLanguages();
                 Language language = peopleWhoSpeakDiffLang.generateReport(con);
                 peopleWhoSpeakDiffLang.displayReport(language);
             default:
