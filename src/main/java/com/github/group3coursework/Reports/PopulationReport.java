@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class PopulationReport {
-    public ArrayList<Population> generateReport(Connection con, String type) {
+class PopulationReport {
+    ArrayList<Population> generateReport(Connection con, String type) {
         ArrayList<Population> populationList = new ArrayList<>();
 
         switch (type) {

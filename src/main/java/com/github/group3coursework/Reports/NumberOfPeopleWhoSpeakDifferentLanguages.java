@@ -11,7 +11,7 @@ class NumberOfPeopleWhoSpeakDifferentLanguages {
     /**
      * Generates the number of people who speak different languages
      * @param con is the connection to the database
-     * @return ArrayList
+     * @return Language
      */
     Language generateReport(Connection con) {
         try {
@@ -19,15 +19,16 @@ class NumberOfPeopleWhoSpeakDifferentLanguages {
             Statement stmt = con.createStatement();
 
             String getAllSelectedLanguages = "SELECT "
-                    + "SUM(CASE WHEN countryLanguage.Language = 'Chinese' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Chinese, "
-                    + "SUM(CASE WHEN countryLanguage.Language = 'English' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS English, "
-                    + "SUM(CASE WHEN countryLanguage.Language = 'Hindi' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Hindi, "
-                    + "SUM(CASE WHEN countryLanguage.Language = 'Spanish' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Spanish, "
-                    + "SUM(CASE WHEN countryLanguage.Language = 'Arabic' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Arabic "
+                    + "SUM(CASE WHEN countrylanguage.Language = 'Chinese' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Chinese, "
+                    + "SUM(CASE WHEN countrylanguage.Language = 'English' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS English, "
+                    + "SUM(CASE WHEN countrylanguage.Language = 'Hindi' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Hindi, "
+                    + "SUM(CASE WHEN countrylanguage.Language = 'Spanish' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Spanish, "
+                    + "SUM(CASE WHEN countrylanguage.Language = 'Arabic' THEN country.Population / countrylanguage.Percentage ELSE 0 END) AS Arabic "
                     + "FROM countrylanguage, country "
-                    + "WHERE l.CountryCode = c.Code";
+                    + "WHERE countrylanguage.CountryCode = country.Code";
 
             ResultSet rset = stmt.executeQuery(getAllSelectedLanguages);
+            rset.next();
 
             Language language = new Language();
             language.setChinese(rset.getInt("Chinese"));

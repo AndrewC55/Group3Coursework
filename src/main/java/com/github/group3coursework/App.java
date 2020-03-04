@@ -1,5 +1,6 @@
 package com.github.group3coursework;
 
+import com.github.group3coursework.Population.PopulationHandler;
 import com.github.group3coursework.Reports.ReportHandler;
 import java.sql.*;
 
@@ -39,7 +40,12 @@ public class App {
         switch(packageName) {
             case "Report":
                 ReportHandler reportHandler = new ReportHandler();
-                reportHandler.reportSelector("City", con);
+                reportHandler.reportSelector("Languages", con);
+                break;
+            case "Population":
+                PopulationHandler populationHandler = new PopulationHandler();
+                populationHandler.populationSelector("City", con);
+                break;
             default:
                 break;
         }
