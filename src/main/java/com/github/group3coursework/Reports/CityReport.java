@@ -1,5 +1,6 @@
-package com.github.group3coursework;
+package com.github.group3coursework.Reports;
 
+import com.github.group3coursework.Entities.City;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -30,10 +31,10 @@ class CityReport {
             while (rset.next())
             {
                 City city = new City();
-                city.name = rset.getString("city.Name");
-                city.country = rset.getString("country.Name");
-                city.district = rset.getString("city.District");
-                city.population = rset.getInt("city.Population");
+                city.setName(rset.getString("city.Name"));
+                city.setCountry(rset.getString("country.Name"));
+                city.setDistrict(rset.getString("city.District"));
+                city.setPopulation(rset.getInt("city.Population"));
                 cities.add(city);
             }
             return cities;
@@ -56,7 +57,7 @@ class CityReport {
 
         // Loop through the cities ArrayList and format all entries
         for (City city : cities) {
-            String cityString = String.format("%-35s %-35s %-35s %-35s", city.name, city.country, city.district, city.population);
+            String cityString = String.format("%-35s %-35s %-35s %-35s", city.getName(), city.getCountry(), city.getDistrict(), city.getPopulation());
             System.out.println(cityString);
         }
     }
