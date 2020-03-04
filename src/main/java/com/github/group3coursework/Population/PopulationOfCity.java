@@ -37,7 +37,7 @@ class PopulationOfCity {
     }
 
     /**
-     * Displays the Capital Report
+     * Displays the population of a given city
      * @param city is the desired city retrieved by the SQL query
      */
     void displayCity(City city) {

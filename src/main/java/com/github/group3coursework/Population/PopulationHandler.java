@@ -24,6 +24,21 @@ public class PopulationHandler {
                 City city = populationOfCity.generateCity(con, "Edinburgh");
                 populationOfCity.displayCity(city);
                 break;
+            case "District":
+                // TODO implement feature for district
+                break;
+            case "Country":
+                // TODO implement feature for country
+                break;
+            case "Region":
+                // TODO implement feature for region
+                break;
+            case "Continent":
+                // TODO implement feature for continent
+                break;
+            case "World":
+                // TODO implement feature for world
+                break;
             default:
                 break;
         }
