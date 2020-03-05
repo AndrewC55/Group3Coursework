@@ -9,36 +9,32 @@ class PopulationOfWorld {
      * @param con is the connection to the database
      * @return long
      */
-    long generateWorld(Connection con, String cityName) {
+    long generateWorld(Connection con) {
         try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
-            String strSelect = "SELECT SUM(country.Population) "
+            String strSelect = "SELECT SUM(Population) as countryPopulation "
                     + "FROM country ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             rset.next();
 
-            long worldPopulation = rset.getInt("country.Population");
-
-            return worldPopulation;
+            return rset.getLong("countryPopulation");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to generate cities");
-            return Long.parseLong(null);
+            System.out.println("Failed to generate world population");
+            return 0;
         }
     }
 
     /**
      * Displays the world population
-     * @param worldPopulation is the desired worldPopulation retrieved by the SQL query
+     * @param worldPopulation is the worldPopulation retrieved by the SQL query
      */
-    void displayCity(long worldPopulation) {
-        // Print Header
-        System.out.println(String.format("%-10s", "World Population"));
-        String cityString = String.format("%-10s", worldPopulation);
-        System.out.println(cityString);
+    void displayWorld(long worldPopulation) {
+        System.out.println("World Population");
+        System.out.println(worldPopulation + " People");
     }
 }

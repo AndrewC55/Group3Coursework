@@ -43,7 +43,7 @@ class PopulationOfCity {
     void displayCity(City city) {
         // Print Header
         System.out.println(String.format("%-10s %-10s", "Name", "Population"));
-        String cityString = String.format("%-10s %-10s", city.getName(), city.getPopulation());
+        String cityString = String.format("%-10s %-10s", city.getName(), city.getPopulation() + " People");
         System.out.println(cityString);
     }
 }

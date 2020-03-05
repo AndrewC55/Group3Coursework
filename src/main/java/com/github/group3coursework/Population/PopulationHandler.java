@@ -6,7 +6,7 @@ import java.sql.Connection;
 /**
  * This is a handler that the main will call
  * This is used to determine which population query the user would like to view
- * This will be used for github issues 26 - 31
+ * This will be used for github issues 26 - 32
  */
 public class PopulationHandler {
 
@@ -37,7 +37,9 @@ public class PopulationHandler {
                 // TODO implement feature for continent
                 break;
             case "World":
-                // TODO implement feature for world
+                PopulationOfWorld populationOfWorld = new PopulationOfWorld();
+                long worldPopulation = populationOfWorld.generateWorld(con);
+                populationOfWorld.displayWorld(worldPopulation);
                 break;
             default:
                 break;

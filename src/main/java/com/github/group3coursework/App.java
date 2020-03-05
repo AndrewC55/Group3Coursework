@@ -21,7 +21,7 @@ public class App {
         a.connect();
 
         // asks the user which report they would like to view
-        a.packageSelector("Report");
+        a.packageSelector("Population");
 
         // Disconnect from database
         a.disconnect();
@@ -44,7 +44,7 @@ public class App {
                 break;
             case "Population":
                 PopulationHandler populationHandler = new PopulationHandler();
-                populationHandler.populationSelector("City", con);
+                populationHandler.populationSelector("World", con);
                 break;
             default:
                 break;
