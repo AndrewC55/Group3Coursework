@@ -31,7 +31,9 @@ public class PopulationHandler {
                 // TODO implement feature for country
                 break;
             case "Region":
-                // TODO implement feature for region
+                PopulationOfRegion populationOfRegion = new PopulationOfRegion();
+                long regionPopulation = populationOfRegion.generateRegion(con, "Abu Dhabi");
+                populationOfRegion.displayRegion(regionPopulation);
                 break;
             case "Continent":
                 // TODO implement feature for continent
