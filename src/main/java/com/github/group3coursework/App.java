@@ -23,7 +23,7 @@ public class App {
         a.connect();
 
         // asks the user which report they would like to view
-        a.packageSelector("Population");
+        a.packageSelector("Urban Population");
 
         // Disconnect from database
         a.disconnect();

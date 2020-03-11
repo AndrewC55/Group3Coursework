@@ -18,19 +18,23 @@ class UrbanPopulationContinent {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect = "SELECT country.Continent AS continent, "
-                    + "SUM(CASE WHEN country.Continent = continent THEN city.Population ELSE 0 END) AS Urban Population, "
-                    + "(SUM(CASE WHEN country.Continent = continent THEN country.Population ELSE 0 END) - Urban Population)AS Rural Population, "
+                    + "SUM(CASE WHEN country.Continent = continent THEN city.Population ELSE 0 END) AS UrbanPopulation, "
+                    + "(SUM(CASE WHEN country.Continent = continent THEN country.Population ELSE 0 END) -  "
+                    + "SUM(CASE WHEN country.Continent = continent THEN city.Population ELSE 0 END)) AS RuralPopulation "
                     + "FROM city, country "
-                    + "WHERE city.CountryCode = country.Code ";
+                    + "WHERE city.CountryCode = country.Code "
+                    + "GROUP BY continent ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+
+            //Extract continent information
             ArrayList<Population> populationList = new ArrayList<>();
 
             while (rset.next()) {
                 Population population = new Population();
-                population.setName(rset.getString(""));
-                population.setPopulationUrban(rset.getLong("city.Name"));
-                population.setPopulationRural(rset.getLong("city.Population"));
+                population.setName(rset.getString("continent"));
+                population.setPopulationUrban(rset.getLong("UrbanPopulation"));
+                population.setPopulationRural(rset.getLong("RuralPopulation"));
                 populationList.add(population);
             }
 
@@ -53,7 +57,7 @@ class UrbanPopulationContinent {
 
         // Loop through the continent ArrayList and format all entries
         for (Population population : populationList) {
-            String continentString = String.format("%-10s %-10s %-35s", population.getName(), population.getPopulationUrban(), population.getPopulationRural());
+            String continentString = String.format("%-35s %-35s %-35s", population.getName(), population.getPopulationUrban(), population.getPopulationRural());
             System.out.println(continentString);
         }
     }
