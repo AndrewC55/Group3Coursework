@@ -6,7 +6,7 @@ import java.sql.Connection;
 /**
  * This is a handler that the main will call
  * This is used to determine which population query the user would like to view
- * This will be used for github issues 26 - 31
+ * This will be used for github issues 32 - 37
  */
 public class PopulationHandler {
 
@@ -23,6 +23,23 @@ public class PopulationHandler {
                 PopulationOfCity populationOfCity = new PopulationOfCity();
                 City city = populationOfCity.generateCity(con, "Edinburgh");
                 populationOfCity.displayCity(city);
+                break;
+            case "District":
+                // TODO implement feature for district
+                break;
+            case "Country":
+                // TODO implement feature for country
+                break;
+            case "Region":
+                // TODO implement feature for region
+                break;
+            case "Continent":
+                // TODO implement feature for continent
+                break;
+            case "World":
+                PopulationOfWorld populationOfWorld = new PopulationOfWorld();
+                long worldPopulation = populationOfWorld.generateWorld(con);
+                populationOfWorld.displayWorld(worldPopulation);
                 break;
             default:
                 break;
