@@ -2,6 +2,8 @@ package com.github.group3coursework;
 
 import com.github.group3coursework.Population.PopulationHandler;
 import com.github.group3coursework.Reports.ReportHandler;
+import com.github.group3coursework.UrbanPopulation.UrbanPopulationHandler;
+
 import java.sql.*;
 
 /**
@@ -21,7 +23,7 @@ public class App {
         a.connect();
 
         // asks the user which report they would like to view
-        a.packageSelector("Population");
+        a.packageSelector("Urban Population");
 
         // Disconnect from database
         a.disconnect();
@@ -45,6 +47,10 @@ public class App {
             case "Population":
                 PopulationHandler populationHandler = new PopulationHandler();
                 populationHandler.populationSelector("World", con);
+                break;
+            case "Urban Population":
+                UrbanPopulationHandler urbanPopulationHandler = new UrbanPopulationHandler();
+                urbanPopulationHandler.urbanPopulationHandler("Continent", con);
                 break;
             default:
                 break;

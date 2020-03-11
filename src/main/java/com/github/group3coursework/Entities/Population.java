@@ -1,6 +1,12 @@
 package com.github.group3coursework.Entities;
 
 public class Population {
+
+    /**
+     * Name of the continent/region/country
+     */
+    private String name;
+
     /**
      * Area of population
      */
@@ -20,6 +26,22 @@ public class Population {
      * Rural Population
      */
     private long populationRural;
+
+    /**
+     * Getter function for name
+     * @return String name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Setter function for name
+     * @param name is the name of the region/country/continent
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
      * Getter function for area
@@ -47,7 +69,7 @@ public class Population {
 
     /**
      * Setter function for total population
-     * @param totalPopulation is teh total population
+     * @param totalPopulation is the total population
      */
     public void setTotalPopulation(long totalPopulation) {
         this.totalPopulation = totalPopulation;

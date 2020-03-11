@@ -27,7 +27,7 @@ class CityReport {
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
-            ArrayList<City> cities = new ArrayList<City>();
+            ArrayList<City> cities = new ArrayList<>();
             while (rset.next())
             {
                 City city = new City();
