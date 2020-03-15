@@ -10,7 +10,7 @@ services:
 - docker
 
 install:
-- docker build -t db db/.
+- docker build -t db database/.
 - docker run --rm -d -e MYSQL_ROOT_PASSWORD=example -p 33060:3306 database
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
@@ -33,7 +33,9 @@ jobs:
   - stage: deploy
     install: skip
     jdk: oraclejdk11
-    script: echo "Deploy"
+    script:
+    - mvn package -DskipTests=true -Dmaven.javadoc.skip=true
+    - docker-compose up --abort-on-container-exit
 
 stages:
   - unit tests
