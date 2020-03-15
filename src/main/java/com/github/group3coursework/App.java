@@ -20,7 +20,7 @@ public class App {
         App a = new App();
 
         // Connect to database
-        a.connect();
+        a.connect("db:3306");
 
         // asks the user which report they would like to view
         a.packageSelector("Urban Population");
@@ -38,7 +38,7 @@ public class App {
      * This is used to determine which package of sql queries the user would like to view
      * @param packageName string value used to input the package
      */
-    private void packageSelector(String packageName) {
+    public void packageSelector(String packageName) {
         switch(packageName) {
             case "Report":
                 ReportHandler reportHandler = new ReportHandler();
@@ -60,7 +60,7 @@ public class App {
     /**
      * Connect to the MySQL database.
      */
-    private void connect()
+    private void connect(String location)
     {
         try
         {
@@ -82,7 +82,7 @@ public class App {
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://" + location + "/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
             }
