@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-class CityReport {
+public class CityReport {
 
     /**
      * Generates the City Report
      * @param con is the connection to the database
      * @return ArrayList
      */
-    ArrayList<City> generateReport(Connection con) {
+    public ArrayList<City> generateReport(Connection con) {
         try
         {
             // Create an SQL statement

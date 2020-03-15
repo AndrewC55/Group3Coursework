@@ -20,7 +20,7 @@ public class App {
         App a = new App();
 
         // Connect to database
-        a.connect("db:3306");
+        a.connect("localhost:33060");
 
         // asks the user which report they would like to view
         a.packageSelector("Urban Population");
@@ -60,7 +60,7 @@ public class App {
     /**
      * Connect to the MySQL database.
      */
-    private void connect(String location)
+    void connect(String location)
     {
         try
         {
