@@ -48,5 +48,4 @@ class TestUrbanPopulationContinent {
         continent.add(population);
         urbanPopulationContinent.displayUrbanPopulationContinent(continent);
     }
-
 }
