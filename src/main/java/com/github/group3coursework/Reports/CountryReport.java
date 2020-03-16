@@ -50,11 +50,20 @@ class CountryReport {
      * @param countries is an ArrayList that contains countries retrieved by the SQL query
      */
     void displayReport(ArrayList<Country> countries) {
+        if (countries == null) {
+            System.out.println("No countries");
+            return;
+        }
+
         // Print country report headers
         System.out.println(String.format("%-30s %-30s %-30s %-30s %-30s", "Name", "Region", "Population", "Capital City", "Continent"));
 
         // Loop through the countries ArrayList and format all entries
         for (Country country : countries) {
+            if (country == null) {
+                continue;
+            }
+
             String countryString = String.format("%-30s %-30s %-30s %-30s %-30s", country.getName(), country.getRegion(), country.getPopulation(), country.getCapitalCity(), country.getContinent());
             System.out.println(countryString);
         }
