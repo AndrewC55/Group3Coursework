@@ -3,9 +3,6 @@ package com.github.group3coursework.Reports;
 import com.github.group3coursework.Entities.City;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,17 +19,6 @@ class TestCityReport {
     void testFailToGenerateReportWhenNoConnectionIsGiven() {
         ArrayList<City> cityList = cityReport.generateReport(null );
         assertNull(cityList);
-    }
-
-    @Test
-    void testPassGenerateReportWhenConnectionIsGiven() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-            ArrayList<City> cityList = cityReport.generateReport(con);
-            assertNotEquals(null, cityList);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     @Test

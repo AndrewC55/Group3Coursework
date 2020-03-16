@@ -3,10 +3,6 @@ package com.github.group3coursework.Reports;
 import com.github.group3coursework.Entities.Language;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class TestNumberOfPeopleWhoSpeakDifferentLanguages {
@@ -21,17 +17,6 @@ class TestNumberOfPeopleWhoSpeakDifferentLanguages {
     void testFailToGenerateReportWhenNoConnectionIsGiven() {
         Language language = numberOfPeopleWhoSpeakDifferentLanguages.generateReport(null);
         assertNull(language);
-    }
-
-    @Test
-    void testPassGenerateReportWhenConnectionIsGiven() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-            Language language = numberOfPeopleWhoSpeakDifferentLanguages.generateReport(con);
-            assertNotEquals(null, language);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     @Test
