@@ -27,8 +27,8 @@ class TestCountryReport {
     void testPassGenerateReportWhenConnectionIsGiven() {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-            ArrayList<Country> cityList = countryReport.generateReport(con);
-            assertNotEquals(null, cityList);
+            ArrayList<Country> countryList = countryReport.generateReport(con);
+            assertNotEquals(null, countryList);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ class TestCountryReport {
         country.setContinent("Europe");
         country.setRegion("British Islands");
         country.setPopulation(450180);
-        countryList.add(null);
+        countryList.add(country);
         countryReport.displayReport(countryList);
     }
 }

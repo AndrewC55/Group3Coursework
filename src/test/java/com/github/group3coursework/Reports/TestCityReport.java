@@ -61,7 +61,7 @@ class TestCityReport {
         city.setCountry("Scotland");
         city.setDistrict("GBR");
         city.setPopulation(450180);
-        cityList.add(null);
+        cityList.add(city);
         cityReport.displayReport(cityList);
     }
 }
