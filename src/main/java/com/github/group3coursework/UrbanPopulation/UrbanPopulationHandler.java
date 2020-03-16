@@ -23,7 +23,9 @@ public class UrbanPopulationHandler {
                 // TODO add urbanPopulation issue for country
                 break;
             case "Region":
-                // TODO add urbanPoulation issue for Region
+                UrbanPopulationRegion urbanPopulationRegion = new UrbanPopulationRegion();
+                ArrayList<Population> urbanPopulationRegionList = urbanPopulationRegion.generateUrbanPopulationRegion(con);
+                urbanPopulationRegion.displayUrbanPopulationRegion(urbanPopulationRegionList);
                 break;
             case "Continent":
                 UrbanPopulationContinent urbanPopulationContinent = new UrbanPopulationContinent();
