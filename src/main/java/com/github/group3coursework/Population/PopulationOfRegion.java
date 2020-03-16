@@ -6,6 +6,7 @@ import java.sql.Statement;
 
 class PopulationOfRegion {
     /**
+     * Generates the region with it's population
      * @param con is the connection to the database
      * @return long
      */
