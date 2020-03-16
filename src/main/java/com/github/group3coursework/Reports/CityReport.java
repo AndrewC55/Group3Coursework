@@ -20,10 +20,10 @@ public class CityReport {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.District, city.Population "
+                    "SELECT Replace(Replace(Replace(city.Name, '[', ''), ']', ''),'´', '') as cityName, country.Name, city.District, city.Population "
                             + "FROM city, country "
                             + "WHERE city.CountryCode = country.Code "
-                            + "ORDER BY city.Name ASC";
+                            + "ORDER BY cityName ASC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -31,7 +31,7 @@ public class CityReport {
             while (rset.next())
             {
                 City city = new City();
-                city.setName(rset.getString("city.Name"));
+                city.setName(rset.getString("cityName"));
                 city.setCountry(rset.getString("country.Name"));
                 city.setDistrict(rset.getString("city.District"));
                 city.setPopulation(rset.getInt("city.Population"));

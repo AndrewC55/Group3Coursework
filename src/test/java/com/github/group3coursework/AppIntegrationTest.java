@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AppIntegrationTest
 {
     static App app;
-    Connection con = null;
+    private static Connection con;
 
     @BeforeAll
     static void init()
     {
         app = new App();
-        app.connect("localhost:3306");
+        con = app.connect("localhost:33060");
     }
 
     @Test
@@ -28,9 +28,9 @@ public class AppIntegrationTest
     {
         CityReport cityReport = new CityReport();
         ArrayList<City> cityList = cityReport.generateReport(con);
-        assertEquals(cityList.get(0).getName(), "A Coruña (La Coruña)");
-        assertEquals(cityList.get(0).getCountry(), "Spain");
-        assertEquals(cityList.get(0).getDistrict(), "Galicia");
-        assertEquals(cityList.get(0).getPopulation(), "243402");
+        assertEquals("A Coruña (La Coruña)", cityList.get(0).getName());
+        assertEquals("Spain", cityList.get(0).getCountry());
+        assertEquals("Galicia", cityList.get(0).getDistrict());
+        assertEquals(243402, cityList.get(0).getPopulation());
     }
 }

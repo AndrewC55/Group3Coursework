@@ -63,7 +63,7 @@ public class App {
     /**
      * Connect to the MySQL database.
      */
-    void connect(String location)
+    Connection connect(String location)
     {
         try
         {
@@ -85,9 +85,9 @@ public class App {
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://" + location + "/world?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://" + location + "/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
                 System.out.println("Successfully connected");
-                break;
+                return con;
             }
             catch (SQLException sqle)
             {
@@ -99,6 +99,7 @@ public class App {
                 System.out.println("Thread interrupted? Should not happen.");
             }
         }
+        return null;
     }
 
     /**
