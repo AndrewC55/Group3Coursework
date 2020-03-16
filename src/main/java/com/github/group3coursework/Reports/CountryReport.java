@@ -28,7 +28,7 @@ class CountryReport {
             ArrayList<Country> countries = new ArrayList<>();
             while (rset.next()) {
                 Country country = new Country();
-                country.setName(rset.getString("country.Name"));;
+                country.setName(rset.getString("country.Name"));
                 country.setRegion(rset.getString("country.Region"));
                 country.setPopulation(rset.getInt("country.Population"));
                 country.setCapitalCity(rset.getString("city.Name"));

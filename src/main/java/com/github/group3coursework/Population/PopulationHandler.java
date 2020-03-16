@@ -1,6 +1,7 @@
 package com.github.group3coursework.Population;
 
 import com.github.group3coursework.Entities.City;
+import com.github.group3coursework.Entities.Continent;
 import java.sql.Connection;
 
 /**
@@ -35,16 +36,17 @@ public class PopulationHandler {
                 long regionPopulation = populationOfRegion.generateRegion(con, "Abu Dhabi");
                 populationOfRegion.displayRegion(regionPopulation);
                 break;
-            case "Continent":
-                // TODO implement feature for continent
-                break;
             case "World":
                 PopulationOfWorld populationOfWorld = new PopulationOfWorld();
                 long worldPopulation = populationOfWorld.generateWorld(con);
                 populationOfWorld.displayWorld(worldPopulation);
                 break;
-            default:
+            case "Continent":
+                PopulationOfContinent populationOfContinent = new PopulationOfContinent();
+                Continent continentPopulation = populationOfContinent.generatePopulation(con, "Oceania");
+                populationOfContinent.displayContinent(continentPopulation);
                 break;
+            default:
         }
     }
 }
