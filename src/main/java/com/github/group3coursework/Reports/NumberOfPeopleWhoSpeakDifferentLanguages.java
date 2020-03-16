@@ -52,6 +52,11 @@ class NumberOfPeopleWhoSpeakDifferentLanguages {
      * @param language is an ArrayList that contains countries retrieved by the SQL query
      */
     void displayReport(Language language) {
+        if (language == null) {
+            System.out.println("No languages");
+            return;
+        }
+
         // Print country report headers
         System.out.println(String.format("%-30s %-30s %-30s %-30s %-30s", "Chinese", "English", "Hindi", "Spanish", "Arabic"));
         String languageString = String.format("%-30s %-30s %-30s %-30s %-30s", language.getChinese(), language.getEnglish(), language.getHindi(), language.getSpanish(), language.getArabic());
