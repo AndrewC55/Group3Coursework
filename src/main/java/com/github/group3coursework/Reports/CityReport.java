@@ -52,11 +52,20 @@ class CityReport {
      * @param cities is an ArrayList that contains cities retrieved by the SQL query
      */
     void displayReport(ArrayList<City> cities) {
+        if (cities == null) {
+            System.out.println("No cities");
+            return;
+        }
+
         // Print Header
         System.out.println(String.format("%-35s %-35s %-35s %-35s", "Name", "Country", "District", "Population"));
 
         // Loop through the cities ArrayList and format all entries
         for (City city : cities) {
+            if (city == null) {
+                continue;
+            }
+
             String cityString = String.format("%-35s %-35s %-35s %-35s", city.getName(), city.getCountry(), city.getDistrict(), city.getPopulation());
             System.out.println(cityString);
         }
