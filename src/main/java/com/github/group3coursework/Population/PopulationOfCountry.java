@@ -34,7 +34,11 @@ public class PopulationOfCountry {
 
   void displayCountry(Country country) {
     System.out.println(String.format("%-25s %-25s", "Country", "Population"));
-    String countryString = String.format("%-25s %-25s", country.getName(), country.getPopulation());
-    System.out.println(countryString);
+    if(country == null){
+      System.out.println("There is no country.");
+    }else{
+      String countryString = String.format("%-25s %-25s", country.getName(), country.getPopulation());
+      System.out.println(countryString);
+    }
   }
 }

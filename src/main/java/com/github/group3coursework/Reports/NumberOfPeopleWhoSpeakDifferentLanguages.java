@@ -59,6 +59,10 @@ class NumberOfPeopleWhoSpeakDifferentLanguages {
 
         // Print country report headers
         System.out.println(String.format("%-30s %-30s %-30s %-30s %-30s", "Chinese", "English", "Hindi", "Spanish", "Arabic"));
+        if(language == null){
+            System.out.println("No Languages");
+            return;
+        }
         String languageString = String.format("%-30s %-30s %-30s %-30s %-30s", language.getChinese(), language.getEnglish(), language.getHindi(), language.getSpanish(), language.getArabic());
         System.out.println(languageString);
     }

@@ -60,6 +60,10 @@ class UrbanPopulationContinent {
         // Print Header
         System.out.println(String.format("%-35s %-35s %-35s", "Name", "Urban Population", "Rural Population"));
 
+        if(populationList == null){
+            System.out.println("No population returned.");
+            return;
+        }
         // Loop through the continent ArrayList and format all entries
         for (Population population : populationList) {
             if (population == null) {

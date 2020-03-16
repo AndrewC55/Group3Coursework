@@ -34,8 +34,12 @@ class PopulationOfRegion {
      * Displays the region population
      * @param regionPopulation is the regionPopulation retrieved by the SQL query
      */
-    void displayRegion(long regionPopulation) {
+    void displayRegion(Long regionPopulation) {
         System.out.println("Region Population");
-        System.out.println(regionPopulation + " People");
+        if (regionPopulation == null) {
+            System.out.println("No Region population");
+        }else{
+            System.out.println(regionPopulation + " People");
+        }
     }
 }
