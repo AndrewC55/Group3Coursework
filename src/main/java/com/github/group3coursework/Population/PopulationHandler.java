@@ -2,6 +2,7 @@ package com.github.group3coursework.Population;
 
 import com.github.group3coursework.Entities.City;
 import com.github.group3coursework.Entities.Continent;
+import com.github.group3coursework.Entities.Country;
 import com.github.group3coursework.Entities.District;
 import java.sql.Connection;
 
@@ -32,7 +33,9 @@ public class PopulationHandler {
                 populationOfDistrict.displayDistrict(district);
                 break;
             case "Country":
-                // TODO implement feature for country
+                PopulationOfCountry populationOfCountry = new PopulationOfCountry();
+                Country country = populationOfCountry.generatePopulation(con, "Cyprus");
+                populationOfCountry.displayCountry(country);
                 break;
             case "Region":
                 PopulationOfRegion populationOfRegion = new PopulationOfRegion();
