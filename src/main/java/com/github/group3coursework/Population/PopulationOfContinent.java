@@ -1,11 +1,9 @@
 package com.github.group3coursework.Population;
 
 import com.github.group3coursework.Entities.Continent;
-import com.github.group3coursework.Entities.Country;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 class PopulationOfContinent {
 
@@ -29,7 +27,7 @@ class PopulationOfContinent {
     }
     catch (Exception e) {
       System.out.println(e.getMessage());
-      System.out.println("failed to generate Country Report");
+      System.out.println("failed to generate Continent Population Report");
       return null;
     }
   }
