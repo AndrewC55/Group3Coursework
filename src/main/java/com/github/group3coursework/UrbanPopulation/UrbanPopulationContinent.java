@@ -52,11 +52,19 @@ class UrbanPopulationContinent {
      * @param populationList is the list of urban/rural populations of each continent
      */
     void displayUrbanPopulationContinent(ArrayList<Population> populationList) {
+        if (populationList == null) {
+            System.out.println();
+            return;
+        }
+
         // Print Header
         System.out.println(String.format("%-35s %-35s %-35s", "Name", "Urban Population", "Rural Population"));
 
         // Loop through the continent ArrayList and format all entries
         for (Population population : populationList) {
+            if (population == null) {
+                continue;
+            }
             String continentString = String.format("%-35s %-35s %-35s", population.getName(), population.getPopulationUrban(), population.getPopulationRural());
             System.out.println(continentString);
         }

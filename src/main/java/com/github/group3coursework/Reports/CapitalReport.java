@@ -50,11 +50,20 @@ class CapitalReport {
      * @param capitals is an ArrayList that contains capitals retrieved by the SQL query
      */
     void displayReport(ArrayList<Capital> capitals) {
+        if (capitals == null) {
+            System.out.println("No capitals");
+            return;
+        }
+
         // Print Header
         System.out.println(String.format("%-35s %-35s %-35s", "Name", "Country", "Population"));
 
         // Loop through the capitals ArrayList and format all entries
         for (Capital capital : capitals) {
+            if (capital == null) {
+                continue;
+            }
+
             String capitalString = String
                     .format("%-35s %-35s %-35s", capital.getName(), capital.getCountry(), capital.getPopulation());
             System.out.println(capitalString);
