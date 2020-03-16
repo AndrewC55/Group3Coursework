@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 class PopulationOfCity {
     /**
-     * Generates the cities with their population Report
+     * Generates the city with it's population
      * @param con is the connection to the database
      * @return City
      */
