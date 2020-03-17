@@ -45,7 +45,7 @@ public class App {
                 break;
             case "Population":
                 PopulationHandler populationHandler = new PopulationHandler();
-                populationHandler.populationSelector("Country", con);
+                populationHandler.populationSelector("Rural Population", con);
                 break;
             case "Urban Population":
                 UrbanPopulationHandler urbanPopulationHandler = new UrbanPopulationHandler();

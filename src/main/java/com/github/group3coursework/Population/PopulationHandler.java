@@ -5,6 +5,7 @@ import com.github.group3coursework.Entities.Continent;
 import com.github.group3coursework.Entities.Country;
 import com.github.group3coursework.Entities.District;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 /**
  * This is a handler that the main will call
@@ -51,6 +52,11 @@ public class PopulationHandler {
                 PopulationOfContinent populationOfContinent = new PopulationOfContinent();
                 Continent continentPopulation = populationOfContinent.generatePopulation(con, "Oceania");
                 populationOfContinent.displayContinent(continentPopulation);
+                break;
+            case "Rural Population":
+                RuralPopulationPercentage ruralPopPercentage = new RuralPopulationPercentage();
+                ArrayList<Country> ruralPopulation = ruralPopPercentage.generatePopulation(con);
+                ruralPopPercentage.displayRuralPopulation(ruralPopulation);
                 break;
             default:
                 break;
