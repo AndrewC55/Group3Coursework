@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class PopulationReport {
-    public ArrayList<Population> generateReport(Connection con, String type) {
+class PopulationReport {
+    ArrayList<Population> generateReport(Connection con, String type) {
         ArrayList<Population> populationList = new ArrayList<>();
 
         switch (type) {
@@ -57,16 +57,25 @@ public class PopulationReport {
     }
 
 
-    public void displayReport(ArrayList<Population> Population) {
+    public void displayReport(ArrayList<Population> populationList) {
+        if (populationList == null) {
+            return;
+        }
+
         // Print country report headers
         System.out.println(String.format("%-30s %-30s %-30s %-30s", "Area", "Total Population", "Total Population Living In Cities", "Total Population Not Living In Cities"));
 
         // Loop through the countries ArrayList and format all entries
-        for (Population population : Population) {
+        for (Population population : populationList) {
+            if (population == null) {
+                System.out.println("No populations");
+                continue;
+            }
+
             Double CitiesPercent = (double) ((population.getPopulationUrban() / population.getTotalPopulation()) * 100);
             Double RuralPercent = (double) ((population.getPopulationRural() / population.getTotalPopulation()) * 100);
-            String populationList = String.format("%-30s %-30s %-30s %-30s", population.getArea(), population.getTotalPopulation(), population.getPopulationUrban() + " %" + CitiesPercent, population.getPopulationRural() + " %" + RuralPercent);
-            System.out.println(populationList);
+            String populationString = String.format("%-30s %-30s %-30s %-30s", population.getArea(), population.getTotalPopulation(), population.getPopulationUrban() + " %" + CitiesPercent, population.getPopulationRural() + " %" + RuralPercent);
+            System.out.println(populationString);
         }
     }
 }
