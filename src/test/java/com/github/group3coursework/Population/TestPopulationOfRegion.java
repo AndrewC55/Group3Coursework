@@ -20,11 +20,11 @@ class TestPopulationOfRegion {
 
     @Test
     void testDisplayRegionWhenPopulationIsValid() {
-        populationOfRegion.displayRegion(1);
+        populationOfRegion.displayRegion((long) 1);
     }
 
     @Test
     void testDisplayRegionWhenPopulationIsNotValid() {
-        populationOfRegion.displayRegion(0);
+        populationOfRegion.displayRegion((long) 0);
     }
 }

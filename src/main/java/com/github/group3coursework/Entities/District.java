@@ -1,40 +1,91 @@
 package com.github.group3coursework.Entities;
 
+/**
+ * Represent's a district
+ */
 public class District {
-  private String name;
-  private String city;
-  private String country;
-  private int population;
 
-  public String getName() {
-    return name;
-  }
+    /**
+     * District's name
+     */
+    private String name;
 
-  public String getCity() {
-    return city;
-  }
+    /**
+     * District's city
+     */
+    private String city;
 
-  public String getCountry() {
-    return country;
-  }
+    /**
+     * District's country
+     */
+    private String country;
 
-  public int getPopulation() {
-    return population;
-  }
+    /**
+     * District's population
+     */
+    private int population;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    /**
+     * Getter function for name
+     * @return String name
+     */
+    public String getName() {
+        return name;
+    }
 
-  public void setCity(String city) {
-    this.city = city;
-  }
+    /**
+     * Getter function for city
+     * @return String city
+     */
+    public String getCity() {
+        return city;
+    }
 
-  public void setCountry(String country) {
-    this.country = country;
-  }
+    /**
+     * Getter function for country
+     * @return String country
+     */
+    public String getCountry() {
+        return country;
+    }
 
-  public void setPopulation(int population) {
-    this.population = population;
-  }
+    /**
+     * Getter function for population
+     * @return int population
+     */
+    public int getPopulation() {
+        return population;
+    }
+
+    /**
+     * Setter function for name
+     * @param name is the name of the district
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Setter function for city
+     * @param city is the city of the district
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    /**
+     * Setter function for country
+     * @param country is the country of the district
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    /**
+     * Setter function for population
+     * @param population is the population of the district
+     */
+    public void setPopulation(int population) {
+        this.population = population;
+    }
 }

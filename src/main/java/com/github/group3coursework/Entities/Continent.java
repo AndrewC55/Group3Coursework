@@ -1,34 +1,70 @@
 package com.github.group3coursework.Entities;
 
+/**
+ * Represent's a Continent
+ */
 public class Continent {
 
-  private String name;
+    /**
+     * Continent's name
+     */
+    private String name;
 
-  private String[] countries;
+    /**
+     * Continent's countries
+     */
+    private String[] countries;
 
-  private int population;
+    /**
+     * Continent's population
+     */
+    private int population;
 
-  public String getName() {
-    return name;
-  }
+    /**
+     * Getter function for name
+     * @return String name
+     */
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    /**
+     * Setter function for name
+     * @param name is the name of the continent
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public String[] getCountries() {
-    return countries;
-  }
+    /**
+     * Getter function for countries
+     * @return String[] countries
+     */
+    public String[] getCountries() {
+        return countries;
+    }
 
-  public void setCountries(String[] countries) {
-    this.countries = countries;
-  }
+    /**
+     * Setter function for countries
+     * @param countries is the countries that are in the continent
+     */
+    public void setCountries(String[] countries) {
+        this.countries = countries;
+    }
 
-  public int getPopulation() {
-    return population;
-  }
+    /**
+     * Getter function for population
+     * @return int population
+     */
+    public int getPopulation() {
+        return population;
+    }
 
-  public void setPopulation(int population) {
-    this.population = population;
-  }
+    /**
+     * Setter function for population
+     * @param population is the population of the continent
+     */
+    public void setPopulation(int population) {
+        this.population = population;
+    }
 }
