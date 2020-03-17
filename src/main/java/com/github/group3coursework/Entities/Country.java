@@ -26,6 +26,21 @@ public class Country {
     private int population;
 
     /**
+     * Country's population in cities
+     */
+    private int cityPopulation;
+
+    /**
+     * Country's population not in cities
+     */
+    private int ruralPopulation;
+
+    /**
+     * Country's population not in cities as a % of full population
+     */
+    private int ruralPercentage;
+
+    /**
      * Country's capital city
      */
     private String capitalCity;
@@ -109,4 +124,54 @@ public class Country {
     public void setCapitalCity(String capitalCity) {
         this.capitalCity = capitalCity;
     }
+
+    /**
+     * Setter function for cities population
+     * @param cityPopulation population of all people living in cities
+     */
+    public void setCityPopulation(int cityPopulation) {
+        this.cityPopulation = cityPopulation;
+    }
+
+
+    /**
+     * Setter function for rural population
+     * @param ruralPopulation population of all people not living in cities
+     */
+    public void setRuralPopulation(int ruralPopulation) {
+        this.ruralPopulation = ruralPopulation;
+    }
+
+    /**
+     * Setter function for percentage of rural population
+     * @param ruralPercentage % of population not living in cities
+     */
+    public void setRuralPercentage(int ruralPercentage) {
+        this.ruralPercentage = ruralPercentage;
+    }
+
+    /**
+     * Getter function for rural percentage
+     * @return int ruralPercentage
+     */
+    public int getRuralPercentage() {
+        return ruralPercentage;
+    }
+
+    /**
+     * Getter function for city population
+     * @return int cityPopulation
+     */
+    public int getCityPopulation() {
+        return cityPopulation;
+    }
+
+    /**
+     * Getter function for rural population
+     * @return int ruralPopulation
+     */
+    public int getRuralPopulation() {
+        return ruralPopulation;
+    }
+
 }
